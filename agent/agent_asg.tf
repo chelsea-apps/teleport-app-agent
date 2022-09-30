@@ -1,3 +1,7 @@
+resource "aws_eip" "agent_ip" {
+
+}
+
 # Agent auto scaling group to provide highly available copies of Teleport agents.
 resource "aws_autoscaling_group" "agent" {
   #name                      = "${var.teleport_agent_name}-agent"
@@ -9,6 +13,13 @@ resource "aws_autoscaling_group" "agent" {
   force_delete              = false
   launch_configuration      = aws_launch_configuration.agent.name
   vpc_zone_identifier       = [for subnet in data.aws_subnet.agent : subnet.id]
+  
+
+  tag {
+    key                 = "Name"
+    value               = "${var.teleport_agent_name}-agent"
+    propagate_at_launch = true
+  }
 
   tag {
     key                 = "TeleportProxyHostname"
