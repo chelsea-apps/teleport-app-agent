@@ -80,7 +80,7 @@ module "teleport-agent-terraform" {
   # AMI ID to use
   # Agents can use OSS AMIs if preferred - Enterprise AMIs are not required.
   # See https://github.com/gravitational/teleport/blob/master/examples/aws/terraform/AMIS.md
-  ami_id = "ami-09a09195c58040c6f"
+  ami_id = var.ami_id
 
   # AWS KMS alias used for encryption/decryption, defaults to alias used in SSM
   kms_alias_name = "alias/aws/ssm"

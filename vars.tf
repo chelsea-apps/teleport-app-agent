@@ -32,3 +32,9 @@ variable "token" {
 variable "subnet_ids" {
   type = set(string)
 }
+
+variable "ami_id" {
+  type = string
+  default = "ami-09a09195c58040c6f"
+  description = "ID of Teleport AMI - eu-west-2 AMI by default. Replace if using a different region (https://github.com/gravitational/teleport/blob/master/examples/aws/terraform/AMIS.md)"
+}
