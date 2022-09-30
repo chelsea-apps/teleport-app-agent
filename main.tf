@@ -58,7 +58,7 @@ module "teleport-agent-terraform" {
 
   # SSH
   teleport_agent_ssh_enabled = "true"
-  teleport_agent_ssh_labels  = "env: dev|mode: agent"
+  teleport_agent_ssh_labels  = "env: dev|mode: agent| project: ${var.name}"
 
   ### Settings for agent deployment
   # List of subnets to spawn agent instances in
